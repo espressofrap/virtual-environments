@@ -20,7 +20,7 @@ jobs:
   displayName: Image Generation (${{ parameters.image_type }})
   timeoutInMinutes: 600
   cancelTimeoutInMinutes: 30
-  pool: ci-agent-pool
+  pool: HIP-Linux
   variables:
   - group: Image Generation Variables
 
