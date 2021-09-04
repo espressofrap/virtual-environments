@@ -3,6 +3,12 @@
 # - https://github.community/t5/GitHub-Actions/Make-secrets-available-to-builds-of-forks/m-p/30678#M508
 # - https://github.community/t5/GitHub-Actions/GitHub-Actions-Manual-Trigger-Approvals/td-p/31504
 # - https://github.community/t5/GitHub-Actions/Protecting-github-workflows/td-p/30290
+parameters:
+  - name: image_type
+    type: string
+    default: ubuntu2004
+    values:
+    - ubuntu2004
 
 jobs:
 - job:
