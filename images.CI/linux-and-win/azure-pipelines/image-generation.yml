@@ -9,6 +9,11 @@ parameters:
     default: ubuntu2004
     values:
     - ubuntu2004
+  - name: image_readme_name
+    type: string
+    default: Ubuntu2004-README.md
+    values:
+    - Ubuntu2004-README.md
 
 jobs:
 - job:
