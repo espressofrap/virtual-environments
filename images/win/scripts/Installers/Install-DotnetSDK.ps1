@@ -28,14 +28,9 @@ function Get-SDKVersionsToInstall (
         $sdks += $release.'sdks'
     }
 
-    $sortedSdkVersions = $sdks.version | Sort-Object { [Version] $_ } -Unique
-
-    if (Test-IsWin22)
-    {
-        return $sortedSdkVersions | Group-Object { $_.Substring(0, $_.LastIndexOf('.') + 2) } | Foreach-Object { $_.Group[-1] }
-    }
-
-    return $sortedSdkVersions
+    return $sdks.version | Sort-Object { [Version] $_ } -Unique `
+                         | Group-Object { $_.Substring(0, $_.LastIndexOf('.') + 2) } `
+                         | Foreach-Object { $_.Group[-1] }
 }
 
 function Invoke-Warmup (
@@ -115,12 +110,21 @@ function InstallAllValidSdks()
 
 function RunPostInstallationSteps()
 {
+    # Add dotnet to PATH
     Add-MachinePathItem "C:\Program Files\dotnet"
-    # Run script at startup for all users
-    $cmdDotNet = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -Command "[System.Environment]::SetEnvironmentVariable(''PATH'',"""$env:USERPROFILE\.dotnet\tools;$env:PATH""", ''USER'')"'
 
-    # Update Run key to run a script at logon
-    Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "DOTNETUSERPATH" -Value $cmdDotNet
+    # Remove NuGet Folder
+    $nugetPath = "$env:APPDATA\NuGet"
+    if (Test-Path $nugetPath) {
+        Remove-Item -Path $nugetPath -Force -Recurse
+    }
+
+    # Generate and copy new NuGet.Config config
+    dotnet nuget list source | Out-Null
+    Copy-Item -Path $nugetPath -Destination C:\Users\Default\AppData\Roaming -Force -Recurse
+
+    # Add %USERPROFILE%\.dotnet\tools to USER PATH
+    Add-DefaultPathItem "%USERPROFILE%\.dotnet\tools"
 }
 
 InstallAllValidSdks

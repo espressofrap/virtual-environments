@@ -2,12 +2,6 @@
 
 source ~/utils/utils.sh
 
-echo "Enabling safari driver..."
-# https://developer.apple.com/documentation/webkit/testing_with_webdriver_in_safari
-# Safari’s executable is located at /usr/bin/safaridriver
-# Configure Safari to Enable WebDriver Support
-sudo safaridriver --enable
-
 echo "Enabling developer mode..."
 sudo /usr/sbin/DevToolsSecurity --enable
 
@@ -19,7 +13,17 @@ sudo rm -f /var/vm/sleepimage
 defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
 
 # Change screen resolution to the maximum supported for 4Mb video memory
-sudo "/Library/Application Support/VMware Tools/vmware-resolutionSet" 1176 885
+if [ -d "/Library/Application Support/VMware Tools" ]; then
+    sudo "/Library/Application Support/VMware Tools/vmware-resolutionSet" 1176 885
+fi
+
+# Update VoiceOver Utility to allow VoiceOver to be controlled with AppleScript
+# by creating a special Accessibility DB file (SIP must be disabled) and
+# updating the user defaults system to reflect this change.
+if csrutil status | grep -Eq  "System Integrity Protection status: (disabled|unknown)"; then
+    sudo bash -c 'echo -n "a" > /private/var/db/Accessibility/.VoiceOverAppleScriptEnabled'
+fi
+defaults write com.apple.VoiceOver4/default SCREnableAppleScript -bool YES
 
 # https://developer.apple.com/support/expiration/
 # Enterprise iOS Distribution Certificates generated between February 7 and September 1st, 2020 will expire on February 7, 2023.
@@ -28,7 +32,7 @@ sudo "/Library/Application Support/VMware Tools/vmware-resolutionSet" 1176 885
 # sudo security delete-certificate -Z FF6797793A3CD798DC5B2ABEF56F73EDC9F83A64 /Library/Keychains/System.keychain
 curl https://www.apple.com/certificateauthority/AppleWWDRCAG3.cer --output $HOME/AppleWWDRCAG3.cer --silent
 # Big Sur requires user interaction to add a cert https://developer.apple.com/forums/thread/671582, we need to use a workaround with SecItemAdd swift method
-if is_Less_BigSur; then
+if is_Catalina; then
     sudo security add-trusted-cert -d -r unspecified -k /Library/Keychains/System.keychain $HOME/AppleWWDRCAG3.cer
 else
     swiftc $HOME/image-generation/add-certificate.swift

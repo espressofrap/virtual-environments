@@ -140,7 +140,7 @@ function Get-HomebrewVersion {
 }
 
 function Get-CpanVersion {
-    $result = Get-CommandResult "cpan --version"
+    $result = Get-CommandResult "cpan --version" -ExpectExitCode @(25, 255)
     $result.Output -match "version (?<version>\d+\.\d+) " | Out-Null
     $cpanVersion = $Matches.version
     return "cpan $cpanVersion"
@@ -172,6 +172,11 @@ function Get-NpmVersion {
 function Get-YarnVersion {
     $yarnVersion = yarn --version
     return "Yarn $yarnVersion"
+}
+
+function Get-ParcelVersion {
+    $parcelVersion = parcel --version
+    return "Parcel $parcelVersion"
 }
 
 function Get-PipVersion {
@@ -275,8 +280,7 @@ function Build-PHPSection {
 function Get-GHCVersion {
     $(ghc --version) -match "version (?<version>\d+\.\d+\.\d+)" | Out-Null
     $ghcVersion = $Matches.version
-    $aptSourceRepo = Get-AptSourceRepository -PackageName "ghc"
-    return "GHC $ghcVersion (apt source repository: $aptSourceRepo)"
+    return "GHC $ghcVersion"
 }
 
 function Get-GHCupVersion {

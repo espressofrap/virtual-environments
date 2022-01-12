@@ -61,6 +61,11 @@ function Get-DockerComposeVersion {
     return "Docker-compose $dockerComposeVersion"
 }
 
+function Get-DockerWincredVersion {
+    $dockerCredVersion = $(docker-credential-wincred version)
+    return "Docker-wincred $dockerCredVersion"
+}
+
 function Get-GitVersion {
     $(git version) -match "git version (?<version>\d+\.\d+\.\d+)" | Out-Null
     $gitVersion = $Matches.Version
@@ -71,11 +76,6 @@ function Get-GitLFSVersion {
     $(git-lfs version) -match "git-lfs\/(?<version>\d+\.\d+\.\d+)" | Out-Null
     $gitLfsVersion = $Matches.Version
     return "Git LFS $gitLfsVersion"
-}
-
-function Get-GVFSVersion {
-    $gvfsVersion = (Get-Command gvfs).Version
-    return "GVFS $gvfsVersion"
 }
 
 function Get-InnoSetupVersion {
@@ -135,6 +135,11 @@ function Get-PackerVersion {
     return "Packer $packerVersion"
 }
 
+function Get-ParcelVersion {
+    $parcelVersion = parcel --version
+    return "Parcel $parcelVersion"
+}
+
 function Get-PulumiVersion {
     return "Pulumi $(pulumi version)"
 }
@@ -159,6 +164,12 @@ function Get-VSWhereVersion {
 function Get-WinAppDriver {
     $winAppDriverVersion = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe").FileVersion
     return "WinAppDriver $winAppDriverVersion"
+}
+
+function Get-WixVersion {
+    $regKey = "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*"
+    $installedApplications = Get-ItemProperty -Path $regKey
+    return ($installedApplications | Where-Object { $_.BundleCachePath -imatch ".*\\WiX\d*\.exe$" } | Select-Object -First 1).DisplayName
 }
 
 function Get-ZstdVersion {
@@ -241,6 +252,11 @@ function Get-StackVersion {
 
 function Get-GoogleCloudSDKVersion {
     (gcloud --version) -match "Google Cloud SDK"
+}
+
+function Get-ServiceFabricSDKVersion {
+    $serviceFabricSDKVersion = Get-ItemPropertyValue 'HKLM:\SOFTWARE\Microsoft\Service Fabric\' -Name FabricVersion
+    return "Service Fabric SDK $serviceFabricSDKVersion"
 }
 
 function Get-NewmanVersion {

@@ -1,53 +1,54 @@
 | Announcements |
 |-|
-| [[macOS, Windows] .NET SDK pre-installation policy will be changed on September, 6](https://github.com/actions/virtual-environments/issues/3809) |
+| [[All OSs] Python version 3.5 will be removed from the images on January 24, 2022](https://github.com/actions/virtual-environments/issues/4744) |
+| [macOS-latest workflows will use macOS-11](https://github.com/actions/virtual-environments/issues/4060) |
 ***
 # macOS 10.15 info
-- System Version: macOS 10.15.7 (19H1323)
+- System Version: macOS 10.15.7 (19H1615)
 - Kernel Version: Darwin 19.6.0
-- Image Version: 20210831.3
+- Image Version: 20211220.1
 
 ## Installed Software
 ### Language and Runtime
-- .NET SDK 2.1.300 2.1.301 2.1.302 2.1.401 2.1.402 2.1.403 2.1.500 2.1.502 2.1.503 2.1.504 2.1.505 2.1.506 2.1.507 2.1.602 2.1.603 2.1.604 2.1.607 2.1.700 2.1.701 2.1.801 2.1.802 2.1.803 2.1.804 2.1.805 2.1.806 2.1.807 2.1.808 2.1.809 2.1.810 2.1.811 2.1.812 2.1.813 2.1.814 2.1.815 2.1.816 2.1.818 3.1.100 3.1.101 3.1.200 3.1.201 3.1.300 3.1.301 3.1.302 3.1.401 3.1.402 3.1.403 3.1.404 3.1.405 3.1.406 3.1.407 3.1.408 3.1.409 3.1.410 3.1.411 3.1.412 5.0.100 5.0.101 5.0.102 5.0.200 5.0.201 5.0.202 5.0.300 5.0.301 5.0.302 5.0.400
+- .NET SDK 2.1.302 2.1.403 2.1.507 2.1.607 2.1.701 2.1.818 3.1.101 3.1.201 3.1.302 3.1.416 5.0.102 5.0.202 5.0.302 5.0.404
 - Bash 3.2.57(1)-release
 - Clang/LLVM 12.0.0 is default
-- Clang/LLVM 12.0.1 is available on `'$(brew --prefix llvm)/bin/clang'`
+- Clang/LLVM 13.0.0 is available on `'$(brew --prefix llvm)/bin/clang'`
 - gcc-9 (Homebrew GCC 9.4.0) 9.4.0 - available by `gcc-9` alias
 - gcc-10 (Homebrew GCC 10.3.0) 10.3.0 - available by `gcc-10` alias
-- gcc-11 (Homebrew GCC 11.2.0) 11.2.0 - available by `gcc-11` alias
+- gcc-11 (Homebrew GCC 11.2.0_3) 11.2.0 - available by `gcc-11` alias
 - GNU Fortran (Homebrew GCC 9.4.0) 9.4.0 - available by `gfortran-9` alias
 - GNU Fortran (Homebrew GCC 10.3.0) 10.3.0 - available by `gfortran-10` alias
-- GNU Fortran (Homebrew GCC 11.2.0) 11.2.0 - available by `gfortran-11` alias
+- GNU Fortran (Homebrew GCC 11.2.0_3) 11.2.0 - available by `gfortran-11` alias
 - Go 1.15.15
-- julia 1.6.2
-- Kotlin 1.5.30-release-407
-- MSBuild 16.6.0.15801 (from /Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/msbuild/15.0/bin/MSBuild.dll)
-- Node.js v14.17.6
-- NVM 0.38.0
-- NVM - Cached node versions: v10.24.1 v12.22.6 v14.17.6
+- julia 1.7.0
+- Kotlin 1.6.10-release-923
+- MSBuild 16.10.1.58001 (from /Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/msbuild/15.0/bin/MSBuild.dll)
+- Node.js v16.13.1
+- NVM 0.39.1
+- NVM - Cached node versions: v12.22.8 v14.18.2 v16.13.1
 - Perl 5.34.0
-- PHP 8.0.10
+- PHP 8.1.1
 - Python 2.7.18
-- Python 3.9.6
-- R 4.1.1
-- Ruby 2.7.4p191
+- Python 3.9.9
+- R 4.1.2
+- Ruby 2.7.5p203
 
 ### Package Management
-- Bundler version 2.2.26
+- Bundler version 2.2.33
 - Carthage 0.38.0
-- CocoaPods 1.10.2
-- Composer 2.1.6
-- Homebrew 3.2.10
+- CocoaPods 1.11.2
+- Composer 2.1.14
+- Homebrew 3.3.9
 - Miniconda 4.10.3
-- NPM 6.14.15
-- NuGet 5.6.0.6489
+- NPM 8.1.2
+- NuGet 5.9.0.7134
 - Pip 20.3.4 (python 2.7)
-- Pip 21.1.3 (python 3.9)
+- Pip 21.3.1 (python 3.9)
 - Pipx 0.16.4
-- RubyGems 3.2.26
-- Vcpkg 2021 (build from master \<2ea3e99>)
-- Yarn 1.22.5
+- RubyGems 3.2.33
+- Vcpkg 2021 (build from master \<cf43cf71c>)
+- Yarn 1.22.17
 
 #### Environment variables
 | Name                    | Value                  |
@@ -56,157 +57,163 @@
 | VCPKG_INSTALLATION_ROOT | /usr/local/share/vcpkg |
 
 ### Project Management
-- Apache Ant(TM) 1.10.11
-- Apache Maven 3.8.2
-- Gradle 7.2
+- Apache Ant(TM) 1.10.12
+- Apache Maven 3.8.4
+- Gradle 7.3.2
+- Sbt 1.5.7
 
 ### Utilities
 - 7-Zip 17.04
 - aria2 1.36.0
-- azcopy 10.12.0
-- bazel 4.2.1
-- bazelisk 1.10.1
+- azcopy 10.13.0
+- bazel 4.2.2
+- bazelisk 1.11.0
 - bsdtar 3.3.2 - available by 'tar' alias
-- Curl 7.78.0
-- Git LFS: 2.13.3
-- Git: 2.33.0
-- GitHub CLI: 2.0.0
-- GNU parallel 20210622
+- Curl 7.80.0
+- Git LFS: 3.0.2
+- Git: 2.34.1
+- GitHub CLI: 2.3.0
+- GNU parallel 20211122
 - GNU Tar 1.34 - available by 'gtar' alias
-- GNU Wget 1.21.1
-- gpg (GnuPG) 2.3.2
-- helm v3.6.3+gd506314
+- GNU Wget 1.21.2
+- gpg (GnuPG) 2.3.3
+- helm v3.7.2+g663a896
 - Hub CLI: 2.14.2
 - jq 1.6
-- mongo v5.0.2
-- mongod v5.0.2
-- Newman 5.2.4
-- OpenSSL 1.1.1l  24 Aug 2021 `(/usr/local/opt/openssl -> /usr/local/Cellar/openssl@1.1/1.1.1l)`
-- Packer 1.7.4
-- PostgreSQL 13.4
-- psql (PostgreSQL) 13.4
+- mongo v5.0.4
+- mongod v5.0.4
+- Newman 5.3.0
+- OpenSSL 1.1.1m  14 Dec 2021 `(/usr/local/opt/openssl@1.1 -> ../Cellar/openssl@1.1/1.1.1m)`
+- Packer 1.7.8
+- PostgreSQL 14.1
+- psql (PostgreSQL) 14.1
 - Sox 14.4.2
 - Subversion (SVN) 1.14.1
 - Switchaudio-osx 1.1.0
-- Vagrant 2.2.18
-- virtualbox 6.1.26r145957
+- Vagrant 2.2.19
+- virtualbox 6.1.30r148432
 - zstd 1.5.0
 
-
 ### Tools
-- Aliyun CLI 3.0.90
-- App Center CLI 2.10.0
-- AWS CLI 2.2.33
-- AWS SAM CLI 1.29.0
-- AWS Session Manager CLI 1.2.245.0
-- Azure CLI 2.27.2
-- Bicep CLI 0.4.613
-- Cabal 3.4.0.0
-- Cmake 3.21.2
-- Fastlane 2.193.0
-- GHC 9.0.1
-- GHCup v0.1.16.2
+- Aliyun CLI 3.0.102
+- App Center CLI 2.10.7
+- AWS CLI 2.4.6
+- AWS SAM CLI 1.36.0
+- AWS Session Manager CLI 1.2.279.0
+- Azure CLI 2.31.0
+- Bicep CLI 0.4.1124
+- Cabal 3.6.2.0
+- Cmake 3.22.1
+- Fastlane 2.199.0
+- GHC 9.2.1
+- GHCup 0.1.17.4
+- Jazzy 0.14.1
 - Stack 2.7.3
-- SwiftFormat 0.48.11
+- SwiftFormat 0.49.1
 - Swig 4.0.2
 - Xcode Command Line Tools 12.4.0.0.1.1610135815
 
 ### Linters
-- SwiftLint 0.43.1
+- SwiftLint 0.45.1
 - yamllint 1.26.3
 
 ### Browsers
-- Safari 14.1.2 (15611.3.10.1.5)
-- SafariDriver 14.1.2 (15611.3.10.1.5)
-- Google Chrome 93.0.4577.63 
-- ChromeDriver 92.0.4515.107
-- Microsoft Edge 92.0.902.84 
-- MSEdgeDriver 92.0.902.84
-- Mozilla Firefox 91.0.2
-- geckodriver 0.29.1
+- Safari 15.2 (15612.3.6.1.8)
+- SafariDriver 15.2 (15612.3.6.1.8)
+- Google Chrome 96.0.4664.110 
+- ChromeDriver 96.0.4664.45
+- Microsoft Edge 96.0.1054.62 
+- MSEdgeDriver 96.0.1054.62
+- Mozilla Firefox 95.0.2
+- geckodriver 0.30.0
+- Selenium server 4.1.0
 
 #### Environment variables
-| Name            | Value                                          |
-| --------------- | ---------------------------------------------- |
-| CHROMEWEBDRIVER | /usr/local/Caskroom/chromedriver/92.0.4515.107 |
-| EDGEWEBDRIVER   | /usr/local/share/edge_driver                   |
-| GECKOWEBDRIVER  | /usr/local/opt/geckodriver/bin                 |
+| Name            | Value                                         |
+| --------------- | --------------------------------------------- |
+| CHROMEWEBDRIVER | /usr/local/Caskroom/chromedriver/96.0.4664.45 |
+| EDGEWEBDRIVER   | /usr/local/share/edge_driver                  |
+| GECKOWEBDRIVER  | /usr/local/opt/geckodriver/bin                |
 
 ### Java
-| Version             | Vendor        | Environment Variable |
-| ------------------- | ------------- | -------------------- |
-| 8.0.302+8 (default) | Adopt OpenJDK | JAVA_HOME_8_X64      |
-| 11.0.12+7           | Adopt OpenJDK | JAVA_HOME_11_X64     |
-| 12.0.2+10.3         | Adopt OpenJDK | JAVA_HOME_12_X64     |
-| 13.0.2+8.1          | Adopt OpenJDK | JAVA_HOME_13_X64     |
-| 14.0.2+12           | Adopt OpenJDK | JAVA_HOME_14_X64     |
+| Version             | Vendor          | Environment Variable |
+| ------------------- | --------------- | -------------------- |
+| 8.0.312+7 (default) | Eclipse Temurin | JAVA_HOME_8_X64      |
+| 11.0.13+8           | Eclipse Temurin | JAVA_HOME_11_X64     |
+| 12.0.2+10.3         | Adopt OpenJDK   | JAVA_HOME_12_X64     |
+| 13.0.2+8.1          | Adopt OpenJDK   | JAVA_HOME_13_X64     |
+| 14.0.2+12           | Adopt OpenJDK   | JAVA_HOME_14_X64     |
+| 17.0.1+12           | Eclipse Temurin | JAVA_HOME_17_X64     |
 
 ### Cached Tools
 #### Ruby
 - 2.4.10
 - 2.5.9
-- 2.6.8
-- 2.7.4
-- 3.0.2
+- 2.6.9
+- 2.7.5
+- 3.0.3
 
 #### Python
 - 2.7.18
 - 3.5.10
-- 3.6.14
-- 3.7.11
-- 3.8.11
-- 3.9.6
+- 3.6.15
+- 3.7.12
+- 3.8.12
+- 3.9.9
+- 3.10.0
 
 #### PyPy
-- 2.7.18 [PyPy 7.3.5]
+- 2.7.18 [PyPy 7.3.6]
 - 3.6.12 [PyPy 7.3.3]
-- 3.7.10 [PyPy 7.3.5]
+- 3.7.12 [PyPy 7.3.7]
+- 3.8.12 [PyPy 7.3.7]
 
 #### Node.js
-- 10.24.1
-- 12.22.6
-- 14.17.6
+- 12.22.8
+- 14.18.2
+- 16.13.1
 
 #### Go
-- 1.13.15
-- 1.14.15
-- 1.15.15
-- 1.16.7
+| Version | Architecture | Environment Variable |
+| ------- | ------------ | -------------------- |
+| 1.15.15 (Default) | x64          | GOROOT_1_15_X64      |
+| 1.16.12 | x64          | GOROOT_1_16_X64      |
+| 1.17.5  | x64          | GOROOT_1_17_X64      |
 
 ### Rust Tools
-- Cargo 1.54.0
-- Rust 1.54.0
-- Rustdoc 1.54.0
+- Cargo 1.57.0
+- Rust 1.57.0
+- Rustdoc 1.57.0
 - Rustup 1.24.3
 
 #### Packages
-- Bindgen 0.59.1
-- Cargo-audit 0.14.1
-- Cargo-outdated v0.9.17
+- Bindgen 0.59.2
+- Cargo-audit 0.16.0
+- Cargo-outdated v0.10.2
 - Cbindgen 0.20.0
-- Clippy 0.1.54
+- Clippy 0.1.57
 - Rustfmt 1.4.37-stable
 
 ### PowerShell Tools
-- PowerShell 7.1.4
+- PowerShell 7.2.1
 
 #### PowerShell Modules
 | Module           | Version |
 | ---------------- | ------- |
 | Az               | 6.1.0   |
 | MarkdownPS       | 1.9     |
-| Pester           | 5.3.0   |
+| Pester           | 5.3.1   |
 | PSScriptAnalyzer | 1.20.0  |
 
 ### Web Servers
 | Name  | Version | ConfigFile                      | ServiceStatus | ListenPort |
 | ----- | ------- | ------------------------------- | ------------- | ---------- |
-| httpd | 2.4.48  | /usr/local/etc/httpd/httpd.conf | stopped       | 80         |
-| nginx | 1.21.1  | /usr/local/etc/nginx/nginx.conf | stopped       | 80         |
+| httpd | 2.4.52  | /usr/local/etc/httpd/httpd.conf | none          | 80         |
+| nginx | 1.21.4  | /usr/local/etc/nginx/nginx.conf | none          | 80         |
 
 ### Xamarin
 #### Visual Studio for Mac
-- 8.10.8.0
+- 8.10.16.2
 
 #### Xamarin bundles
 | symlink          | Xamarin.Mono | Xamarin.iOS | Xamarin.Mac | Xamarin.Android |
@@ -250,7 +257,7 @@
 
 #### Xcode Support Tools
 - xcpretty 0.3.0
-- xcversion 2.7.0
+- xcversion 2.8.0
 - Nomad CLI 0.0.2
 - Nomad shenzhen CLI 0.14.3
 - xctool 0.3.7
@@ -342,21 +349,21 @@
 | watchOS 7.2 | 12.3<br>12.4                   | Apple Watch Series 4 - 40mm<br>Apple Watch Series 4 - 44mm<br>Apple Watch Series 5 - 40mm<br>Apple Watch Series 5 - 44mm<br>Apple Watch Series 6 - 40mm<br>Apple Watch Series 6 - 44mm                                                                                                                                                                                                                                                                                                      |
 
 ### Android
-| Package Name               | Version                                                                                                                                                                                                                         |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Android Command Line Tools | 4.0                                                                                                                                                                                                                             |
-| Android Emulator           | 30.8.4                                                                                                                                                                                                                          |
-| Android SDK Build-tools    | 31.0.0<br>30.0.0 30.0.1 30.0.2 30.0.3<br>29.0.0 29.0.1 29.0.2 29.0.3<br>28.0.0 28.0.1 28.0.2 28.0.3<br>27.0.0 27.0.1 27.0.2 27.0.3<br>26.0.0 26.0.1 26.0.2 26.0.3<br>25.0.0 25.0.1 25.0.2 25.0.3<br>24.0.0 24.0.1 24.0.2 24.0.3 |
-| Android SDK Platforms      | android-31 (rev 1)<br>android-30 (rev 3)<br>android-29 (rev 5)<br>android-28 (rev 6)<br>android-27 (rev 3)<br>android-26 (rev 2)<br>android-25 (rev 3)<br>android-24 (rev 2)                                                    |
-| Android SDK Platform-Tools | 31.0.3                                                                                                                                                                                                                          |
-| Android Support Repository | 47.0.0                                                                                                                                                                                                                          |
-| CMake                      | 3.10.2<br>3.18.1                                                                                                                                                                                                                |
-| Google APIs                | addon-google_apis-google-21<br>addon-google_apis-google-22<br>addon-google_apis-google-23<br>addon-google_apis-google-24                                                                                                        |
-| Google Play services       | 49                                                                                                                                                                                                                              |
-| Google Repository          | 58                                                                                                                                                                                                                              |
-| NDK                        | 15.2.4203891<br>18.1.5063045<br>21.4.7075529<br>22.1.7171670                                                                                                                                                                    |
-| SDK Patch Applier v4       | 1                                                                                                                                                                                                                               |
-| Intel HAXM                 | 7.6.5                                                                                                                                                                                                                           |
+| Package Name               | Version                                                                                                                                                                                                                                   |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Android Command Line Tools | 4.0                                                                                                                                                                                                                                       |
+| Android Emulator           | 31.1.4                                                                                                                                                                                                                                    |
+| Android SDK Build-tools    | 32.0.0<br>31.0.0<br>30.0.0 30.0.1 30.0.2 30.0.3<br>29.0.0 29.0.1 29.0.2 29.0.3<br>28.0.0 28.0.1 28.0.2 28.0.3<br>27.0.0 27.0.1 27.0.2 27.0.3<br>26.0.0 26.0.1 26.0.2 26.0.3<br>25.0.0 25.0.1 25.0.2 25.0.3<br>24.0.0 24.0.1 24.0.2 24.0.3 |
+| Android SDK Platforms      | android-32 (rev 1)<br>android-31 (rev 1)<br>android-30 (rev 3)<br>android-29 (rev 5)<br>android-28 (rev 6)<br>android-27 (rev 3)<br>android-26 (rev 2)<br>android-25 (rev 3)<br>android-24 (rev 2)                                        |
+| Android SDK Platform-Tools | 31.0.3                                                                                                                                                                                                                                    |
+| Android Support Repository | 47.0.0                                                                                                                                                                                                                                    |
+| CMake                      | 3.10.2<br>3.18.1                                                                                                                                                                                                                          |
+| Google APIs                | addon-google_apis-google-21<br>addon-google_apis-google-22<br>addon-google_apis-google-23<br>addon-google_apis-google-24                                                                                                                  |
+| Google Play services       | 49                                                                                                                                                                                                                                        |
+| Google Repository          | 58                                                                                                                                                                                                                                        |
+| NDK                        | 15.2.4203891<br>18.1.5063045<br>21.4.7075529 (default)<br>22.1.7171670<br>23.1.7779620                                                                                                                                                    |
+| SDK Patch Applier v4       | 1                                                                                                                                                                                                                                         |
+| Intel HAXM                 | 7.6.5                                                                                                                                                                                                                                     |
 
 #### Environment variables
 | Name                    | Value                                                                                              |
@@ -364,9 +371,14 @@
 | ANDROID_HOME            | /Users/runner/Library/Android/sdk                                                                  |
 | ANDROID_NDK_18R_PATH    | /Users/runner/Library/Android/sdk/ndk/18.1.5063045                                                 |
 | ANDROID_NDK_HOME        | /Users/runner/Library/Android/sdk/ndk-bundle -> /Users/runner/Library/Android/sdk/ndk/21.4.7075529 |
-| ANDROID_NDK_LATEST_HOME | /Users/runner/Library/Android/sdk/ndk/22.1.7171670                                                 |
+| ANDROID_NDK_LATEST_HOME | /Users/runner/Library/Android/sdk/ndk/23.1.7779620                                                 |
 | ANDROID_NDK_ROOT        | /Users/runner/Library/Android/sdk/ndk-bundle -> /Users/runner/Library/Android/sdk/ndk/21.4.7075529 |
 | ANDROID_SDK_ROOT        | /Users/runner/Library/Android/sdk                                                                  |
+
+### Miscellaneous
+- libXext 1.3.4
+- libXft 2.3.4
+- Zlib 1.2.11
 
 
 
