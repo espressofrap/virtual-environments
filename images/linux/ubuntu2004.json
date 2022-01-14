@@ -31,7 +31,7 @@
     ],
     "builders": [
         {
-            "type": "vhd",
+            "type": "azure-arm",
             "client_id": "{{user `client_id`}}",
             "client_secret": "{{user `client_secret`}}",
             "subscription_id": "{{user `subscription_id`}}",
